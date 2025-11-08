@@ -1,7 +1,5 @@
--- Name        :  devel (1.1)
--- Description :  a dark neovim colorscheme for devels
--- Author      :  makestatic
--- License     :  MIT
+-- devel (1.2)
+-- https://github.com/makestatic/devel.nvim
 
 local c = {
     black      = "#000000",
@@ -81,8 +79,7 @@ for group, opts in pairs(groups) do
 end
 
 -- who needs treesittah?
-vim.schedule(function()
-if vim.fn.exists(":TSDisable") == 2 then
-    vim.cmd("TSDisable highlight")
+local function disableTS()
+	vim.cmd("TSDisable highlight")
 end
-end)
+vim.schedule(disableTS)
